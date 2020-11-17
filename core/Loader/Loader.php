@@ -111,11 +111,11 @@ class Loader {
 		$short_locale = substr( $locale, 0, 2 );
 		$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 
-		wp_enqueue_style( 'carbon-fields-core', \Carbon_Fields\URL . '/assets/dist/carbon.css', array(), \Carbon_Fields\VERSION );
+		wp_enqueue_style( 'carbon-fields-core', plugins_url('/ed-inventory-ultimate/vendor/htmlburger/carbon-fields') . '/assets/dist/carbon.css', array(), \Carbon_Fields\VERSION );
 
-		wp_enqueue_script( 'carbon-fields-vendor', \Carbon_Fields\URL . '/assets/dist/carbon.vendor' . $suffix . '.js', array( 'jquery' ), \Carbon_Fields\VERSION );
-		wp_enqueue_script( 'carbon-fields-core', \Carbon_Fields\URL . '/assets/dist/carbon.core' . $suffix . '.js', array( 'carbon-fields-vendor', 'quicktags', 'editor' ), \Carbon_Fields\VERSION );
-		wp_enqueue_script( 'carbon-fields-boot', \Carbon_Fields\URL . '/assets/dist/carbon.boot' . $suffix . '.js', array( 'carbon-fields-core' ), \Carbon_Fields\VERSION );
+		wp_enqueue_script( 'carbon-fields-vendor', plugins_url('/ed-inventory-ultimate/vendor/htmlburger/carbon-fields') . '/assets/dist/carbon.vendor' . $suffix . '.js', array( 'jquery' ), \Carbon_Fields\VERSION );
+		wp_enqueue_script( 'carbon-fields-core', plugins_url('/ed-inventory-ultimate/vendor/htmlburger/carbon-fields') . '/assets/dist/carbon.core' . $suffix . '.js', array( 'carbon-fields-vendor', 'quicktags', 'editor' ), \Carbon_Fields\VERSION );
+		wp_enqueue_script( 'carbon-fields-boot', plugins_url('/ed-inventory-ultimate/vendor/htmlburger/carbon-fields') . '/assets/dist/carbon.boot' . $suffix . '.js', array( 'carbon-fields-core' ), \Carbon_Fields\VERSION );
 
 		wp_localize_script( 'carbon-fields-vendor', 'carbonFieldsConfig', apply_filters( 'carbon_fields_config', array(
 			'compactInput' => \Carbon_Fields\COMPACT_INPUT,
